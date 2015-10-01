@@ -1,0 +1,56 @@
+/*
+Bonfire: Truncate a string
+
+Truncate a string (first argument) if it is longer than the given maximum string length (second argument). Return the truncated string with a "..." ending.
+
+Note that the three dots at the end add to the string length.
+*/
+/*
+myTruncate. This function follows other purpose.
+Receives a string, and number of characters to 
+truncate.
+Returns a new string with the same or less 
+characters that it receives.
+For example:
+myTruncate("Peter Piper picked a peck of pickled peppers", 14)
+Want 14 characters, so:
+Peter Piper p
+But the word picked is not complet, so, first
+verifies if the word is complet, if is not cuts
+and returns the truncated string with a "..." 
+ending.
+Peter Piper ...
+*/
+function myTruncate(str, num) {
+  var subs = str.split(" ");
+  console.log(subs);
+  var newStr = "";
+  var j = subs[0].length+1;
+  for(var i = 0; i < subs.length; i++){
+    j = j + subs[i+1].length+1;
+    console.log(j);
+    console.log(newStr);
+    
+    if(j < num) {
+      newStr = newStr + subs[i]+" " ;
+    } else {
+      break;
+    }
+  }
+  newStr = newStr + "...";
+  console.log(newStr);
+  return newStr;
+}
+
+/*
+This is the function for the bonfire.
+*/
+function truncate(str, num) {
+  if (str.length <= num) {
+    return str;
+  } else {
+    return str.slice(0, num-3)+"...";
+  }
+}
+
+truncate("A-tisket a-tasket A green and yellow basket", 11);
