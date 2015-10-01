@@ -9,8 +9,7 @@ Your result must be a string.
 */
 
 function reverseString(str) {
-  var array = str.split("").reverse().join("");
-  return array;
+  return str.split("").reverse().join("");
 }
 
 reverseString("hello");
